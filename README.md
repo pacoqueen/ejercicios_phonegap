@@ -17,3 +17,18 @@ Ejercicios del MOOC de [MiríadaX: Creando Apps. Aprende a programar aplicacione
 * Módulo 5: Datos
 
 * Módulo 6: Aspectos avanzados
+
+En este repositorio solo se almacenan los ficheros relevantes de cada módulo (`www/*`, principalmente). Para usar cada aplicación se debe instalar primero PhoneGap:
+```
+npm install phonegap
+echo << EOF
+cat > ~/bin/phonegap << EOF
+#!/bin/bash
+~/node_modules/phonegap/bin/phonegap.js "$@"
+EOF
+```
+Y crear cada proyecto, copiando después los fuentes del repositorio. Por ejemplo:
+```
+phonegap create modulo1 --name "Gestos"
+cp -a gestos/* modulo1
+```
