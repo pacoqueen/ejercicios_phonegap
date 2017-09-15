@@ -22,7 +22,7 @@ var config = {
 
 ---
 
-![Captura de pantalla](www/img/Screenshot_2017-09-15-15-15-30.png)
+![Captura de pantalla](www/img/Screenshot_2017-09-15-15-30-05.png)
 
 Servir la aplicación desde el ordenador con
 ```
