@@ -4,9 +4,13 @@ Aplicación para geolocalizar el móvil, mostrar un mapa y guardar lugares favor
 
 ## Paso 1
 
+> Commit 78c5b1029ca03a9102595c4bb00fd7d668f9bed4
+
 Obtener las coordenadas de la posición del móvil.
 
 ## Paso 2
+
+> Commit 43fbcbd928b95e6e6ece5d307060af3df4f75f21
 
 Dibujar un mapa según las coordenadas del paso anterior. La porción del mapa a dibujar se descargará de [mapbox](http://www.mapbox.com/) usando la biblioteca [leaflet](http://leafletjs.com/examples/quick-start/). `leaflet.js` debe extraerse en `www/js`, mientras que `leaflet.css` y el directorio `images` deben estar en `www/css`.
 
