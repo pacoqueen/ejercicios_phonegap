@@ -1,0 +1,10 @@
+*/CONTRIBUTING.md
+*/hooks
+*/node_modules
+*/platforms
+*/plugins
+*/www/res
+*/www/spec
+*/www/spec.html
+*/.bithoundrc
+*/package.json
