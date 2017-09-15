@@ -11,3 +11,5 @@ Servir la aplicación desde el ordenador con
 phonegap serve
 ```
 Y lanzarla en el móvil con [PhoneGap Developer App](http://docs.phonegap.com/getting-started/2-install-mobile-app/).
+
+![Captura de pantalla](Screenshot_2017-09-15-09-13-14.png)
