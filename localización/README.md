@@ -24,9 +24,11 @@ var config = {
 
 ## Paso 3
 
+Añade la funcionalidad de crear marcadores en el mapa al pulsar. Cada marcador abre un diálogo emergente con las coordenadas.
+
 ---
 
-![Captura de pantalla](www/img/Screenshot_2017-09-15-15-30-05.png)
+![Captura de pantalla](www/img/Screenshot_2017-09-16-14-05-23.png)
 
 Servir la aplicación desde el ordenador con
 ```

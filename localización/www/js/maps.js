@@ -27,6 +27,18 @@ var app = {
              accessToken: config.MAPBOX_APIKEY}
         ).addTo(mi_mapa);
         console.log("Mapa renderizado.");
+
+        app.pintar_marcador([position.coords.latitude, position.coords.longitude], 'Usted está aquí', mi_mapa);
+
+        mi_mapa.on('click', function(evento){
+            var texto='Marcador en lat. (' + evento.latlng.lat.toFixed(2) + ') y lon. (' + evento.latlng.lng.toFixed(2)  + ')';
+            app.pintar_marcador(evento.latlng, texto, mi_mapa);
+        });
+    },
+
+    pintar_marcador: function(latlng, texto, mapa){
+        var marcador = L.marker(latlng).addTo(mapa);
+        marcador.bindPopup(texto).openPopup();
     },
 
     errorAlSolicitarLocalizacion: function(error){
