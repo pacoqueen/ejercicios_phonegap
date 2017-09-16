@@ -24,7 +24,7 @@ var config = {
 
 ## Paso 3
 
-> [Commit 06f86e6](https://github.com/pacoqueen/ejercicios_phonegap/tree/c6f86e6de73ae88be6697f8df882e8471f6c2309)
+> [Commit `06f86e6`](https://github.com/pacoqueen/ejercicios_phonegap/tree/c6f86e6de73ae88be6697f8df882e8471f6c2309)
 
 Añade la funcionalidad de crear marcadores en el mapa al pulsar. Cada marcador abre un diálogo emergente con las coordenadas.
 
