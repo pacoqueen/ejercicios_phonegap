@@ -18,11 +18,11 @@ Se usa la biblioteca [Phaser](https://phaser.io/download/stable) como _framework
 
 > [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
 
-Añadiendo jugabilidad: Debemos movel la bola a un objetivo para aumentar la puntuación. Cada vez que se suma un punto, el objetivo se coloca en una nueva posición.
+Añadiendo jugabilidad: Debemos movel la bola a un objetivo para aumentar la puntuación. Cada vez que se suma un punto, el objetivo se coloca en una nueva posición y aumenta la velocidad de la bola si la puntuación es positiva. Para reiniciar el juego, agitar el móvil.
 
 ---
 
-![Captura de pantalla](www/img/.png)
+![Captura de pantalla](www/img/Screenshot_2017-09-17-12-21-47.png)
 
 Servir la aplicación desde el ordenador con
 ```
