@@ -10,7 +10,7 @@ Lectura de los valores del acelerómetro con `watchAcceleration`.
 
 ## Paso 2
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `9132952`](https://github.com/pacoqueen/ejercicios_phonegap/tree/91329523598dba2ce295fe691ab19a88d01bcdad)
 
 Se usa la biblioteca [Phaser](https://phaser.io/download/stable) como _framework_ del juego. Con el acelerómetro detectamos la inclinación del móvil para mover una bola por la pantalla. Si toca los bordes, la puntuación decrementa en 1.
 
