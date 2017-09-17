@@ -6,6 +6,7 @@
 
 > [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
 
+Lectura de los valores del acelerómetro con `watchAcceleration`.
 
 ## Paso 2
 
