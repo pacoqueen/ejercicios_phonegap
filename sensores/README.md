@@ -16,7 +16,7 @@ Se usa la biblioteca [Phaser](https://phaser.io/download/stable) como _framework
 
 ## Paso 3
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `602cd71`](https://github.com/pacoqueen/ejercicios_phonegap/tree/602cd71e7be780f4278058f4ea179034431addad)
 
 Añadiendo jugabilidad: Debemos movel la bola a un objetivo para aumentar la puntuación. Cada vez que se suma un punto, el objetivo se coloca en una nueva posición y aumenta la velocidad de la bola si la puntuación es positiva. Para reiniciar el juego, agitar el móvil.
 
