@@ -4,7 +4,7 @@
 
 ## Paso 1
 
-> [Commit `6c68c5f`](https://github.com/pacoqueen/ejercicios_phonegap/commit/6c68c5fa9a48955115f09ae9f009457f324dbf73)
+> [Commit `6c68c5f`](https://github.com/pacoqueen/ejercicios_phonegap/tree/6c68c5fa9a48955115f09ae9f009457f324dbf73)
 
 Lectura de los valores del acelerómetro con `watchAcceleration`.
 
