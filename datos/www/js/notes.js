@@ -1,79 +1,153 @@
 var app = {
 
-    model: {
-        "notas": [{"titulo": "Comprar pan", "contenido": "Oferta en la panaderia de la esquina"}]
-    },
+  model: {
+    "notas": [{"titulo": "Comprar pan", "contenido": "Oferta en la panaderia de la esquina"}]
+  },
 
-    inicio: function(){
-        this.iniciaFastClick();
-        this.iniciaBotones();
-        this.refrescarLista();
-    },
+  inicio: function(){
+    /**
+     * Inicializa la aplicación y bibliotecas de terceros.
+     */
+    this.iniciaFastClick();
+    this.iniciaBotones();
+    this.refrescarLista();
+  },
 
-    iniciaFastClick: function() {
-        FastClick.attach(document.body);
-    },
+  iniciaFastClick: function() {
+    FastClick.attach(document.body);
+  },
 
-    iniciaBotones: function() {
-        var salvar = document.querySelector('#salvar');
-        var anadir = document.querySelector('#anadir');
-    
-        anadir.addEventListener('click' ,this.mostrarEditor, false);
-        salvar.addEventListener('click' ,this.salvarNota, false);
-    },
+  iniciaBotones: function() {
+    /**
+     * Asocia los manejadores de mostrar y guardar nueva nota.
+     */
+    console.log("Iniciando botones...");
+    var salvar = document.querySelector('#salvar');
+    var anadir = document.querySelector('#anadir');
 
-    mostrarEditor: function() {
-        document.getElementById('titulo').value = "";
-        document.getElementById('comentario').value = "";
-        document.getElementById("note-editor").style.display = "block";
-        document.getElementById('titulo').focus();
-    },
+    anadir.addEventListener('click', this.mostrarEditor, false);
+    salvar.addEventListener('click', this.salvarNota, false);
+    console.log("Botones inicializados.");
+  },
 
-    salvarNota: function() {
-        app.construirNota();
-        app.ocultarEditor();
-        app.refrescarLista();
-    },
+  mostrarEditor: function() {
+    /**
+     * Pone los valores de los controles a vacío, muestra el formulario
+     * cambiando el display `none` (del CSS) por `block` y obtiene el foco.
+     */
+    console.log("Mostrando editor...");
+    document.getElementById('titulo').value = "";
+    document.getElementById('comentario').value = "";
+    document.getElementById("note-editor").style.display = "block";
+    document.getElementById('titulo').focus();
+  },
 
-    refrescarLista: function() {
-        var div=document.getElementById('notes-list');
-        div.innerHTML = this.anadirNotasALista();
-    },
+  salvarNota: function() {
+    app.construirNota();
+    app.ocultarEditor();
+    app.refrescarLista();
+    app.grabarDatos();
+  },
 
-    anadirNotasALista: function() {
-        var notas = this.model.notas;
-        var notasDivs = '';
-        for (var i in notas) {
-            var titulo = notas[i].titulo;
-            notasDivs = notasDivs + this.anadirNota(i, titulo);
-        }
-        return notasDivs;
-    },
+  grabarDatos: function(){
+    window.resolveLocalFileSystemURL(cordova.file.externalApplicationStorageDirectory,
+                                     this.gotFS, this.fail);
+  },
 
-    anadirNota: function(id, titulo) {
-        return "<div class='note-item' id='notas[" + id + "]'>" + titulo + "</div>";
-    },
+  gotFS: function(fileSystem){
+    fileSystem.getFile("files/"+"model.json", {create: true, exclusive: false}, app.gotFileEntry, app.fail);
+  },
 
-    construirNota: function() {
-        var notas = app.model.notas;
-        notas.push({"titulo": app.extraerTitulo() , "contenido": app.extraerComentario() });
-    },
+  gotFileEntry: function(fileEntry){
+    fileEntry.createWriter(app.gotFileWriter, app.fail);
+  },
 
-    extraerTitulo: function() {
-        return document.getElementById('titulo').value;
-    },
+  gotFileWriter: function(writer){
+    writer.onwriteend = function(evt){
+      console.log("Datos grabados en externalApplicationStorageDirectory.");
+    };
+    writer.write(JSON.stringify(app.model));
+  },
 
-    extraerComentario: function() {
-        return document.getElementById('comentario').value;
-    },
+  leerDatos: function(){
+    /**
+     * Resuelve la ruta donde cordova guarda ficheros y en caso de éxito abre
+     * en `obtenerFS` el fichero que guarda las notas (el modelo) en _json_.
+     * Si no hay errores, abre una tercera función (`leerFile`) el fichero y
+     * carga los datos en el modelo real `app.model`.
+     */
+    console.log("Abriendo almacenamiento externo...");
+    window.resolveLocalFileSystemURL(cordova.file.externalApplicationStorageDirectory,
+                                     this.obtenerFS, this.fail);
+  },
 
-    ocultarEditor: function() {
-        document.getElementById("note-editor").style.display = "none";
+  obtenerFS: function(fileSystem){
+    console.log("Abriendo fichero model.json...");
+    fileSystem.getFile("files/"+"model.json", null, app.obtenerFileEntry, app.fail);
+  },
+
+  obtenerFileEntry: function(fileEntry){
+    console.log("Leyendo contenido...");
+    fileEntry.file(app.leerFile, app.fail);
+  },
+
+  leerFile: function(file){
+    console.log("Parseando json...");
+    var reader = new FileReader();
+    reader.onloadend = function(evt){
+      var data = evt.target.result;
+      app.model = JSON.parse(data);
+      app.inicio();
+    };
+    reader.readAsText(file);
+  },
+
+  fail: function(error){
+    console.error("Error: " + error.code);
+  },
+
+  refrescarLista: function() {
+    var div=document.getElementById('notes-list');
+    div.innerHTML = this.anadirNotasALista();
+  },
+
+  anadirNotasALista: function() {
+    var notas = this.model.notas;
+    var notasDivs = '';
+    for (var i in notas) {
+      var titulo = notas[i].titulo;
+      notasDivs = notasDivs + this.anadirNota(i, titulo);
     }
+    return notasDivs;
+  },
+
+  anadirNota: function(id, titulo) {
+    console.log("Añadir nota");
+    return "<div class='note-item' id='notas[" + id + "]'>" + titulo + "</div>";
+  },
+
+  construirNota: function() {
+    var notas = app.model.notas;
+    notas.push({"titulo": app.extraerTitulo() , "contenido": app.extraerComentario() });
+  },
+
+  extraerTitulo: function() {
+    return document.getElementById('titulo').value;
+  },
+
+  extraerComentario: function() {
+    return document.getElementById('comentario').value;
+  },
+
+  ocultarEditor: function() {
+    document.getElementById("note-editor").style.display = "none";
+  }
 };
 
 if('addEventListener' in document){
-      document.addEventListener('DOMContentLoaded', function() {
-            app.inicio();
-    }, false);
-};
+  document.addEventListener('deviceready', function() {
+    console.log("Aplicación iniciada. Leyendo datos...");
+    //app.inicio();
+    app.leerDatos();
+  }, false);
+}

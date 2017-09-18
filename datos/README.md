@@ -19,6 +19,20 @@ Se añade la funcionalidad de crear nuevas notas.
 
 > [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
 
+Se agrega persistencia para que las nuevas notas no se pierdan al reiniciar la aplicación.
+
+La primera vez que se ejecuta, falla porque no existe el fichero `Andoid\data\com.adobe.phonegap.files\model.json` y el `leerDatos`, al no poder abrir el fichero, no llega a ejecutar el `app.inicio`.
+
+Se puede, bien crear el fichero vacío a mano, o bien cambiar descomentar la línea 150 y comentar la 151 para que la aplicación cargue y se pueda guardar una primera nota.
+
+```javascript
+if('addEventListener' in document){
+  document.addEventListener('deviceready', function() {
+    console.log("Aplicación iniciada. Leyendo datos...");
+    app.inicio();
+    //app.leerDatos();
+  }, false);
+```
 
 ## Paso 4
 
