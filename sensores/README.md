@@ -22,7 +22,7 @@ Añadiendo jugabilidad: Debemos movel la bola a un objetivo para aumentar la pun
 
 ## Práctica
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `81a7b5e`](https://github.com/pacoqueen/ejercicios_phonegap/tree/81a7b5e46d0ec7f55a09faddd87193821e85db82)
 
 Hay que desarrollar un juego para evaluar por pares usando el acelerómetro y la biblioteca _Phaser_.
 
