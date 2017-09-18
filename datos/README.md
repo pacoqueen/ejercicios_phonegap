@@ -17,7 +17,7 @@ Se añade la funcionalidad de crear nuevas notas.
 
 ## Paso 3
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `02e4845`](https://github.com/pacoqueen/ejercicios_phonegap/tree/02e48457f680053f63b8474ee1499e1f4721379a)
 
 Se agrega persistencia para que las nuevas notas no se pierdan al reiniciar la aplicación.
 
