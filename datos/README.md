@@ -4,7 +4,7 @@ Aplicación para guardar notas, con posibilidad de almacenamiento en la nube.
 
 ## Paso 1
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `ccc88ea`](https://github.com/pacoqueen/ejercicios_phonegap/tree/ccc88ea1252d7eb13351abbe034cd85d1784e82b)
 
 Esqueleto de la aplicación. Sin comportamiento. Solo un sencillo CSS.
 

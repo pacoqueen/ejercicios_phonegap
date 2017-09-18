@@ -13,10 +13,11 @@ body {
 .note-item {
   margin-top: 2px;
   background: yellow;
-  border: 1px solid black;  
+  border: 1px solid black;
 }
 
 .note-editor {
+  display: none;
   padding: 10px;
 }
 
