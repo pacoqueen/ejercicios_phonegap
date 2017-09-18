@@ -1,8 +1,12 @@
 # Módulo 5: Datos
 
+Aplicación para guardar notas, con posibilidad de almacenamiento en la nube.
+
 ## Paso 1
 
 > [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+
+Esqueleto de la aplicación. Sin comportamiento. Solo un sencillo CSS.
 
 
 ## Paso 2

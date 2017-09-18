@@ -38,23 +38,34 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="css/notas.css" />
+    <title>Notas</title>
 </head>
 
 <body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
+  <div class="header">
+      <h2>Aplicación de notas</h2>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+
+    <div class="notes-list-container">
+      <div class="notes-list" id="notes-list">
+        <div class="note-item">Comprar pan</div>
+        <div class="note-item">Revisión coche</div>
+      </div>
+      <button class="anadir" id="anadir">Añadir</button>
+    </div>
+
+    <div class="note-editor" id="note-editor">
+      <input class="titulo" type="text" name="titulo" id="titulo" placeholder="Titulo" required />
+      <br>
+      <textarea class="comentario" name="comentario" id="comentario" placeholder="Añadir comentario"></textarea>
+      <br>
+      <button class="salvar" id="salvar">Salvar</button>
+    </div>
+
+    <footer class="footer">
+      <h4> Creando Apps. Aprende a programar aplicaciones móviles.</h4>
+    </footer>
 </body>
 
 </html>
