@@ -11,8 +11,9 @@ Esqueleto de la aplicación. Sin comportamiento. Solo un sencillo CSS.
 
 ## Paso 2
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `d0c065d`](https://github.com/pacoqueen/ejercicios_phonegap/tree/d0c065d0804ec903e9d4f18177415726e85b3822)
 
+Se añade la funcionalidad de crear nuevas notas.
 
 ## Paso 3
 
