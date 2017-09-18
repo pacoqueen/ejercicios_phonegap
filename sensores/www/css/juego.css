@@ -1,5 +1,12 @@
+/* Paleta:
+ * HEX: #92a8d1 (azul claro)
+ * HEX: #034f84 (azul oscuro)
+ * HEX: #f7cac9 (rosa)
+ * HEX: #f7786b (rojo)
+ */
+
 body{
     margin: 0;
     padding: 0;
-    background-color: #fdcf58;
+    background-color: #034f84;
 }
