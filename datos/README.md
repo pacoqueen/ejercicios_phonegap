@@ -36,7 +36,7 @@ if('addEventListener' in document){
 
 ## Paso 4
 
-> [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
+> [Commit `bbd2df7`](https://github.com/pacoqueen/ejercicios_phonegap/tree/bbd2df7fd7194b2ac870b588c8841db4b5d1f3fc)
 
 Se guarda una copia de seguridad de los datos en la nube usando la biblioteca _Firebase_. La configuración de _Firebase_ se establece en un fichero aparte (`www/js/config.js`) que no se incluye en el repositorio por motivos de seguridad.
 
@@ -83,7 +83,7 @@ service firebase.storage {
 
 ---
 
-![Captura de pantalla](www/img/.png)
+![Captura de pantalla](www/img/Screenshot_2017-09-20-08-23-56.png)
 
 Servir la aplicación desde el ordenador con
 ```
