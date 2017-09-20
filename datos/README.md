@@ -38,7 +38,48 @@ if('addEventListener' in document){
 
 > [Commit ``](https://github.com/pacoqueen/ejercicios_phonegap/tree/)
 
+Se guarda una copia de seguridad de los datos en la nube usando la biblioteca _Firebase_. La configuración de _Firebase_ se establece en un fichero aparte (`www/js/config.js`) que no se incluye en el repositorio por motivos de seguridad.
 
+El fichero contiene, casi sin cambios, el [fragmento de código proporcionado por el propio _Firebase_](https://console.firebase.google.com/u/0/):
+
+```javascript
+  // Initialize Firebase
+  var config = {
+    apiKey: "YourOwnApiKeyHere_aslasdOUASDOUasdp9a89",
+    authDomain: "yourapp.firebaseapp.com",
+    databaseURL: "https://yourapp.firebaseio.com",
+    projectId: "yourapp",
+    storageBucket: "yourapp.appspot.com",
+    messagingSenderId: "648767168764"
+  };
+```
+
+Este fichero debe importarse en el `index.html` para que la variable establecida pueda ser accedida por `notes.js`.
+
+Por defecto los proyectos en _Firebase_ se crean con una [regla de seguridad](https://firebase.google.com/docs/storage/security/start?authuser=0) para _Storage_ que obliga a que los usuarios estén autenticados para poder guardar ficheros:
+```
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+```
+
+Hay que editarla para permitir el acceso público (sin autenticación de usuario):
+```
+// Anyone can read or write to the bucket, even non-users of your app.
+// Because it is shared with Google App Engine, this will also make
+// files uploaded via GAE public.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;
+    }
+  }
+}
+```
 
 ---
 

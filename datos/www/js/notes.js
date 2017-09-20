@@ -9,12 +9,17 @@ var app = {
      * Inicializa la aplicación y bibliotecas de terceros.
      */
     this.iniciaFastClick();
+    this.iniciaFirebase();
     this.iniciaBotones();
     this.refrescarLista();
   },
 
   iniciaFastClick: function() {
     FastClick.attach(document.body);
+  },
+
+  iniciaFirebase: function() {
+    firebase.initializeApp(configFirebase);
   },
 
   iniciaBotones: function() {
@@ -65,8 +70,24 @@ var app = {
   gotFileWriter: function(writer){
     writer.onwriteend = function(evt){
       console.log("Datos grabados en externalApplicationStorageDirectory.");
+      if (app.hayWifi()){
+        app.salvarFirebase();
+      }
     };
     writer.write(JSON.stringify(app.model));
+  },
+
+  salvarFirebase: function(){
+    console.log("Salvando en Firebase...");
+    console.log(configFirebase.projectId);
+    var ref = firebase.storage().ref('model.json');
+    ref.putString(JSON.stringify(app.model));
+    console.log("Guardado.");
+  },
+
+  hayWifi: function(){
+    console.log("¿Hay wifi?");
+    return navigator.connection.type==='wifi';
   },
 
   leerDatos: function(){
